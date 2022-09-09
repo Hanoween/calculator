@@ -9,8 +9,9 @@ const OPERATIONS = ["+", "−", "×", "÷", "xⁿ"];
 
 buttons.forEach(element => {
     element.addEventListener("click", () => {
-        if (element.innerHTML != "=" && !OPERATIONS.includes(element.innerHTML) && screen.innerHTML.length > 16) return;
-        if (getNext)  next = element.innerHTML;
+        if (element.innerHTML != "=" && element.innerHTML != "AC" && !OPERATIONS.includes(element.innerHTML) && screen.innerHTML.length > 16) return;
+        if (getNext) next = element.innerHTML;
+        if (element.className == "special") return;
         switch (element.innerHTML) {
             case ("="):
                 reset = true;
@@ -78,7 +79,7 @@ function evaluate(equation = "") {
     for (let i = 0; i < equation.length; i++) {
         if (OPERATIONS.includes(equation[i])) {
             let op = equation[i];
-            let d1 = equation[i - 1]; 
+            let d1 = equation[i - 1];
             let d2 = equation[i + 1];
             let div1 = divideBy(d1);
             let div2 = divideBy(d2);
@@ -120,7 +121,7 @@ function evaluate(equation = "") {
         return "NUMBER TOO BIG";
     }
     else if (equation[0].toString().length > 17) {
-        return equation[0] = equation[0].toString().slice(0, 17);    
+        return equation[0] = equation[0].toString().slice(0, 17);
     }
     else return equation[0];
 }
@@ -156,3 +157,27 @@ function divideBy(div) {
     }
     catch { return 1; }
 }
+
+function hoverButton() {
+    let buttons = document.querySelectorAll("button");
+    buttons.forEach(button => {
+        button.addEventListener("mouseover", () => {
+            button.style.filter = "brightness(80%)";
+        });
+        button.addEventListener("mouseout", () => {
+            button.style.filter = null;
+        });
+    });
+
+}
+
+function playAudio() {
+    let audio = document.querySelector("audio");
+    document.body.addEventListener("mousemove", () => {
+        audio.play();
+    })
+}
+
+
+hoverButton();
+playAudio();

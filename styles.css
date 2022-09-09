@@ -3,8 +3,17 @@ html, body {
     height: 100%;
     width: 100%;   
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    background-image: url("images/bg.jpg");
+    background-position: 0 20%;
+    background-attachment: fixed;
+    background-size: 100%;
+}
+
+#content {
+    color: white;
 }
 
 #calculator {
@@ -13,10 +22,17 @@ html, body {
     height: 85%;
     width: 30%;
     border-style: solid;
+    border-width: 1em;
+    border-radius: 3em;
     padding: 2em;
     gap: 1.5em;
+    background-color: #444544;
 }
 
+img {
+    width: 70%;
+    height: auto;
+}
 #screen {
     border-style: solid;
     height: 20%;
@@ -39,24 +55,50 @@ html, body {
     justify-content: space-between;
     align-items: center;
     height: 100%;
-    gap: 1.5em;
+    gap: 0.5em;
 }
 
 .column {
     width: 100%;
     display: flex;
     height: 20%;
-    gap: 1.5em;
+    gap: 0.5em;
 }
 
 button {
     width: 100%;
     height: 100%;
     border-style: solid;
+    border-radius: 0.6em;
+    border-width: 0.15em;
     font-size: 2rem;
+    background-color: red;
 }
 
 .small {
     position: relative;
     height: 70%;
+}
+
+@media screen and (max-width: 1200px){
+    #calculator {
+        width: 70%;
+    }
+    .special{
+        display: none;
+    }
+    
+}
+
+@media screen and (max-width: 1200px) and (orientation: landscape) {
+    html, body {
+        font-size: 0.5rem;
+    }
+    .special {
+        display: block;
+    }
+
+    .special img{
+        width: 50%;
+    }
 }
