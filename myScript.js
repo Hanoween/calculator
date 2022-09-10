@@ -122,8 +122,8 @@ function evaluate(equation = "") {
     else if (equation[0] > 9999999999999999) {
         return "NUMBER TOO BIG";
     }
-    else if (equation[0].toString().length > 17) {
-        return equation[0] = equation[0].toString().slice(0, 17);
+    else if (equation[0].toString().length > 16) {
+        return equation[0] = equation[0].toString().slice(0, 16);
     }
     else return equation[0];
 }
