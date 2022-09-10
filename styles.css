@@ -81,6 +81,9 @@ button {
 }
 
 @media screen and (max-width: 1200px){
+    html, body {
+        font-size: 0.5rem;
+    }
     #calculator {
         width: 70%;
     }
@@ -91,9 +94,6 @@ button {
 }
 
 @media screen and (max-width: 1200px) and (orientation: landscape) {
-    html, body {
-        font-size: 0.5rem;
-    }
     .special {
         display: block;
     }
