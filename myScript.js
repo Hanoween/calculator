@@ -30,11 +30,6 @@ buttons.forEach(element => {
                 equation.pop();
                 break;
 
-            case ("ANS"):
-                screen.innerHTML += "ANS";
-                equation.push(ans);
-                break;
-
             default:
                 if (reset) {
                     resetScreen();
@@ -48,6 +43,11 @@ buttons.forEach(element => {
                 if (element.innerHTML == "xⁿ") {
                     screen.innerHTML += "^";
                     equation.push(element.innerHTML);
+                }
+
+                else if (element.innerHTML == "ANS") {
+                    screen.innerHTML += "ANS";
+                    equation.push(String(ans));
                 }
 
                 else if (element.innerHTML == "+/−") {
@@ -73,7 +73,9 @@ function resetScreen() {
 }
 
 function evaluate(equation = "") {
+    console.log(equation);
     eq = reduce(equation);
+    console.log(equation);
     //try {
     let div = null;
     for (let i = 0; i < equation.length; i++) {
