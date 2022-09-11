@@ -9,7 +9,8 @@ const OPERATIONS = ["+", "−", "×", "÷", "xⁿ"];
 
 buttons.forEach(element => {
     element.addEventListener("click", () => {
-        if (element.innerHTML != "=" && element.innerHTML != "AC" && !OPERATIONS.includes(element.innerHTML) && screen.innerHTML.length > 16) return;
+        if (screen.innerHTML.length > 16) 
+        screen.innerHTML = screen.innerHTML.slice(screen.innerHTML.length - 16);
         if (getNext) next = element.innerHTML;
         if (element.className == "special") return;
         switch (element.innerHTML) {
